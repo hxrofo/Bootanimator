@@ -83,7 +83,7 @@ def create_bootanimation():
     num_frames = FPS * DURATION_SECONDS
     total_frames = num_frames + FADE_IN_FRAMES + FADE_OUT_FRAMES
     
-    # 1. Load and prepare the logo (stamp)
+    # 1. Load and prepare the logo
     if not os.path.exists(INPUT_IMAGE):
         print(f"❌ Error: '{INPUT_IMAGE}' not found in the same folder!")
         return
@@ -92,7 +92,7 @@ def create_bootanimation():
     orig_width, orig_height = logo_img.size
     print(f"🖼️  Loaded image: {orig_width}x{orig_height}")
     
-    # 🔥 AUTO-CROP: Remove empty padding around the circle
+    # 🔥 AUTO-CROP: Remove empty padding
     logo_img = trim_background(logo_img, tolerance=CROP_TOLERANCE)
     
     # Create a solid background canvas
@@ -127,7 +127,7 @@ def create_bootanimation():
     
     print(f"⏳ Generating {total_frames} frames for part0...")
     
-    # 3. Generate Part 0 frames (filling bar — NO GLITCHES)
+    # 3. Generate Part 0 frames
     for i in range(total_frames):
         # Calculate progress (0.0 to 1.0) and fade alpha
         if i < FADE_IN_FRAMES:
@@ -177,7 +177,7 @@ def create_bootanimation():
         if (i + 1) % 10 == 0:
             print(f"  Rendered {i+1}/{total_frames} frames")
 
-    # 4. Generate Part 1 (Infinite loop - full bar, NO GLITCHES, NO "KALI" text)
+    # 4. Generate Part 1 (Infinite loop - full bar
     print("⏳ Generating 30 loop frames for part1...")
     for i in range(30):
         frame = base_img.copy()
@@ -186,14 +186,12 @@ def create_bootanimation():
         # Full white bar
         draw.rectangle([(0, HEIGHT - BAR_HEIGHT), (WIDTH, HEIGHT)], fill=BAR_COLOR)
         
-        # Subtle pulse glow (optional - keep it clean)
+        # Subtle pulse glow
         pulse = int(15 * abs((i / 30) * 2 - 1))  # 0 to 15 and back
         if pulse > 0:
             glow_color = (255, 255, 255, pulse)
             draw.rectangle([(0, HEIGHT - BAR_HEIGHT - pulse//2), (WIDTH, HEIGHT + pulse//2)], 
                           outline=(255, 255, 255), width=2)
-        
-        # 👈 "KALI" text REMOVED as requested
         
         frame.save(f"part1/frame_{i:04d}.png")
     
