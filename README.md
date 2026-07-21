@@ -8,12 +8,11 @@ It automatically crops empty padding, resizes your image to fit the screen, and 
 ## ✨ Features
 
 - 📱 **Auto-detects** your phone's screen resolution (via ADB)
-- ✂️ **Auto-crops** invisible padding around logos/emblems
-- 🖼️ **Forces scaling** to fill the screen (no more tiny stamps!)
+- ✂️ **Auto-crops** invisible padding
+- 🖼️ **Forces scaling** to fill the screen
 - 🚀 **Auto-pushes** to your device and updates the Magisk module
 - 🔄 **Optional auto-reboot** after installation
 - 🎨 Fully configurable: bar thickness, colors, background, fade effects, percentage text
-- 🧹 **No glitches, no extra text** (clean and minimal)
 
 ---
 
