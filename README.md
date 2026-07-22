@@ -33,7 +33,7 @@ It automatically crops empty padding, resizes your image to fit the screen, and 
 2. **Place your image** in the same folder and rename it to `logo.jpg`  
    *(or change `INPUT_IMAGE` in the script)*.
 
-3. **Connect your phone** via USB (with ADB debugging enabled).
+3. **Connect your phone** via USB (with USB Debugging enabled).
 
 4. **Run the script**:
    ```bash
